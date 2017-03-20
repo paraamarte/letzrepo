@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sivillage.common.mapper.MapperDefinitions">
+	<sql id="InsertColumns">
+		SYS_REGR_ID        	/* 시스템 등록자 ID */
+        ,SYS_REG_DTIME      /* 시스템 등록 일시*/
+        ,SYS_REG_PGM_ID      /* 시스템 등록 프로그램  ID  */
+        ,SYS_REG_REQ_ID      /* 시스템 등록 요청 ID */
+        ,SYS_MODR_ID        	/* 시스템 수정자 ID */
+        ,SYS_MOD_DTIME      /* 시스템 수정 일시*/
+        ,SYS_MOD_PGM_ID      /* 시스템 수정 프로그램  ID  */
+        ,SYS_MOD_REQ_ID      /* 시스템 수정 요청 ID */
+	</sql>
+
+	<sql id="InsertValues">
+		#{registId, jdbcType=VARCHAR},
+		#{registTime},
+		#{registProgramId, jdbcType=VARCHAR},
+		#{registRequestId, jdbcType=VARCHAR},
+		#{modifyId, jdbcType=VARCHAR},
+		#{modifyTime},
+		#{modifyProgramId, jdbcType=VARCHAR},
+		#{modifyRequestId, jdbcType=VARCHAR}
+	</sql>
+
+	<sql id="UpdateSet">
+		SYS_MODR_ID = #{modifyId, jdbcType=VARCHAR},
+		SYS_MOD_DTIME = #{modifyTime},
+		SYS_MOD_PGM_ID = #{modifyProgramId, jdbcType=VARCHAR},
+		SYS_MOD_REQ_ID = #{modifyRequestId, jdbcType=VARCHAR}
+	</sql>
+	
+	<sql id="SelectSet">
+		SYS_REGR_ID   		as registId,
+		SYS_REG_DTIME  		as registTime,
+        SYS_REG_PGM_ID 		as registProgramId,
+        SYS_REG_REQ_ID 		as registRequestId,
+		SYS_MODR_ID 		as modifyId, 
+		SYS_MOD_DTIME 		as modifyTime,
+		SYS_MOD_PGM_ID 		as modifyProgramId,
+		SYS_MOD_REQ_ID 		as modifyRequestId
+	</sql>
+</mapper>
